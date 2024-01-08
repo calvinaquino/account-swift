@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9833C54E2B3112CA00E3B3F1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9833C54D2B3112CA00E3B3F1 /* Category.swift */; };
+		9833C5502B3112FC00E3B3F1 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9833C54F2B3112FC00E3B3F1 /* ShoppingList.swift */; };
+		9833C5522B314E0800E3B3F1 /* ListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9833C5512B314E0800E3B3F1 /* ListItemsView.swift */; };
 		9896F1D32AAC1BC7007662F1 /* accountyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896F1D22AAC1BC7007662F1 /* accountyApp.swift */; };
-		9896F1D52AAC1BC7007662F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896F1D42AAC1BC7007662F1 /* ContentView.swift */; };
+		9896F1D52AAC1BC7007662F1 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896F1D42AAC1BC7007662F1 /* ListsView.swift */; };
 		9896F1D72AAC1BC7007662F1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9896F1D62AAC1BC7007662F1 /* Item.swift */; };
 		9896F1D92AAC1BC9007662F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9896F1D82AAC1BC9007662F1 /* Assets.xcassets */; };
 		9896F1DD2AAC1BC9007662F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9896F1DC2AAC1BC9007662F1 /* Preview Assets.xcassets */; };
@@ -35,9 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9833C54D2B3112CA00E3B3F1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		9833C54F2B3112FC00E3B3F1 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
+		9833C5512B314E0800E3B3F1 /* ListItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsView.swift; sourceTree = "<group>"; };
 		9896F1CF2AAC1BC7007662F1 /* accounty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = accounty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9896F1D22AAC1BC7007662F1 /* accountyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accountyApp.swift; sourceTree = "<group>"; };
-		9896F1D42AAC1BC7007662F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9896F1D42AAC1BC7007662F1 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		9896F1D62AAC1BC7007662F1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		9896F1D82AAC1BC9007662F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9896F1DA2AAC1BC9007662F1 /* accounty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = accounty.entitlements; sourceTree = "<group>"; };
@@ -75,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9833C54A2B31125C00E3B3F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9896F1D62AAC1BC7007662F1 /* Item.swift */,
+				9833C54D2B3112CA00E3B3F1 /* Category.swift */,
+				9833C54F2B3112FC00E3B3F1 /* ShoppingList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9896F1C62AAC1BC7007662F1 = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				9896F1D22AAC1BC7007662F1 /* accountyApp.swift */,
-				9896F1D42AAC1BC7007662F1 /* ContentView.swift */,
-				9896F1D62AAC1BC7007662F1 /* Item.swift */,
+				9896F1D42AAC1BC7007662F1 /* ListsView.swift */,
+				9833C5512B314E0800E3B3F1 /* ListItemsView.swift */,
+				9833C54A2B31125C00E3B3F1 /* Models */,
 				9896F1D82AAC1BC9007662F1 /* Assets.xcassets */,
 				9896F1DA2AAC1BC9007662F1 /* accounty.entitlements */,
 				9896F1DE2AAC1BC9007662F1 /* Info.plist */,
@@ -198,7 +215,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					9896F1CE2AAC1BC7007662F1 = {
 						CreatedOnToolsVersion = 15.0;
@@ -264,7 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9896F1D52AAC1BC7007662F1 /* ContentView.swift in Sources */,
+				9833C5502B3112FC00E3B3F1 /* ShoppingList.swift in Sources */,
+				9833C54E2B3112CA00E3B3F1 /* Category.swift in Sources */,
+				9896F1D52AAC1BC7007662F1 /* ListsView.swift in Sources */,
+				9833C5522B314E0800E3B3F1 /* ListItemsView.swift in Sources */,
 				9896F1D72AAC1BC7007662F1 /* Item.swift in Sources */,
 				9896F1D32AAC1BC7007662F1 /* accountyApp.swift in Sources */,
 			);
@@ -337,6 +357,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -398,6 +419,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -425,6 +447,7 @@
 				CODE_SIGN_ENTITLEMENTS = accounty/accounty.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"accounty/Preview Content\"";
 				DEVELOPMENT_TEAM = 5F35F2ZNFF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -464,6 +487,7 @@
 				CODE_SIGN_ENTITLEMENTS = accounty/accounty.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"accounty/Preview Content\"";
 				DEVELOPMENT_TEAM = 5F35F2ZNFF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -502,6 +526,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 5F35F2ZNFF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -525,6 +550,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 5F35F2ZNFF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -547,6 +573,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 5F35F2ZNFF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -569,6 +596,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 5F35F2ZNFF;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

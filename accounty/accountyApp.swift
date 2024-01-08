@@ -25,7 +25,7 @@ struct accountyApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ListsView()
         }
         .modelContainer(sharedModelContainer)
     }
