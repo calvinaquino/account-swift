@@ -22,3 +22,4 @@ final class Category {
         self.list = list
     }
 }
+#warning("Add an extension with some examples to be used in previews and tests")

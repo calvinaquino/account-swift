@@ -10,7 +10,10 @@ import SwiftData
 
 @Model
 final class Item {
+#warning("Do we really need a UUID?")
+//    @Attribute(.unique) var identifier: UUID
     var name: String
+#warning("Add a description field, but since we cant reuse the word description, maybe itemDescription?")
     var cost: Float
     var isStocked: Bool
     var once: Bool // when purchased, deactivates item
@@ -41,3 +44,5 @@ final class Item {
         self.timestamp = Date()
     }
 }
+
+#warning("Add an extension with some examples to be used in previews and tests")

@@ -10,6 +10,7 @@ import SwiftData
 
 @main
 struct accountyApp: App {
+    #warning("move sharedModelContainer to its own file, setup a modelContainer for previews/tests")
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,

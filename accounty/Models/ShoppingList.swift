@@ -19,3 +19,4 @@ final class ShoppingList {
         self.name = name
     }
 }
+#warning("Add an extension with some examples to be used in previews and tests")
