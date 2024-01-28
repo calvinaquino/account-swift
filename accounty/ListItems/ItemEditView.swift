@@ -33,8 +33,10 @@ struct ItemEditView: View {
     var body: some View {
         Form {
             TextField("Name", text: $item.name)
-            TextField("Comment", text: $item.comment, axis: .vertical)
+            #warning("Improve comment: Rename to note, add a title, and a way to dismiss")
+            TextEditor(text: $item.comment)
             // I am not happy with this behaviour but it works.
+            #warning("Improve cost: make it string and allow multiple entries?")
             TextField("Cost", value: $item.cost, format: .number)
                 .keyboardType(.decimalPad)
             .keyboardType(.decimalPad)
