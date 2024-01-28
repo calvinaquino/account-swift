@@ -32,10 +32,12 @@ struct ListItemsView: View {
             }
             .overlay {
                 if items.isEmpty, categories.isEmpty {
-                    #warning("improve the look of this view.")
-    //                ContentUnavailableView.search
-                    Button("Create new item named '\(searchText)'") {
-                        addSearchItem()
+                    if !searchText.isEmpty {
+                        Button("Create new item named '\(searchText)'") {
+                            addSearchItem()
+                        }
+                    } else {
+                        Text("Your list is empty.")
                     }
                 }
             }
