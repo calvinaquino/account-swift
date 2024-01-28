@@ -19,4 +19,21 @@ final class ShoppingList {
         self.name = name
     }
 }
-#warning("Add an extension with some examples to be used in previews and tests")
+
+extension ShoppingList {
+    // Useful for creating child models without worrying about passing a list
+    static var defaultExample = example()
+    
+    static func example() -> ShoppingList {
+        return ShoppingList(name: "Example List")
+    }
+    
+    static func examples() -> [ShoppingList] {
+        return [
+            ShoppingList(name: "Example List 1"),
+            ShoppingList(name: "Example List 2"),
+            ShoppingList(name: "Example List 3"),
+            ShoppingList(name: "Example List 4"),
+        ]
+    }
+}

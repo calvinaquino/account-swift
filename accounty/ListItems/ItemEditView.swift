@@ -53,6 +53,13 @@ struct ItemEditView: View {
     }
 }
 
-//#Preview {
-//    ItemEditView()
-//}
+#Preview {
+    let moc = DataProvider.previewContainer()
+    let item = Item.example()
+    moc.mainContext.insert(ShoppingList.defaultExample)
+    moc.mainContext.insert(item)
+    return NavigationView {
+        ItemEditView(item: item, list: .defaultExample)
+            .modelContainer(moc)
+    }
+}

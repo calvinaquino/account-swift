@@ -75,6 +75,7 @@ final class AppState {
     var path: [Destination] = []
     
     func loadCachedList(context: ModelContext) {
+        guard !PreviewHelper.isPreview else { return }
         if let data = UserDefaults.standard.data(forKey: "selectedList") {
             let listId = try! JSONDecoder().decode(ShoppingList.ID.self, from: data)
             if let list = context.model(for: listId) as? ShoppingList {
@@ -84,8 +85,22 @@ final class AppState {
     }
 }
 
-#warning("fix ListsView preview")
-//#Preview {
-//    ListsView()
-//        .modelContainer(for: Item.self, inMemory: true)
-//}
+extension AppState {
+    static func example() -> AppState {
+        AppState()
+    }
+}
+
+#Preview {
+    let moc = DataProvider.previewContainer()
+    let lists = ShoppingList.examples()
+    for list in lists {
+        moc.mainContext.insert(list)
+    }
+
+    return NavigationStack {
+        ListsView()
+            .modelContainer(moc)
+    }
+    
+}

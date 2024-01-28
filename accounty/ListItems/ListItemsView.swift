@@ -15,6 +15,9 @@ struct ListItemsView: View {
     @State var searchText = ""
     @State var editingItem: Item?
     
+    #warning("add filter button to show unstocked stuff")
+    #warning("add active/inactive state fade")
+    #warning("one time items should become inactive when stocked.")
     var body: some View {
         ListitemsFilter(list: list, searchText: $searchText) { items, categories in
             List {
@@ -129,6 +132,20 @@ extension Collection where Element == ListingCategory {
 }
 
 #Preview {
-    ListsView()
-        .modelContainer(for: Item.self, inMemory: true)
+    let moc = DataProvider.previewContainer()
+    moc.mainContext.insert(ShoppingList.defaultExample)
+    let categories = Category.examples()
+    for category in categories {
+        moc.mainContext.insert(category)
+        let items = Item.examples(category: category)
+        for item in items {
+            moc.mainContext.insert(item)
+        }
+    }
+
+    return NavigationStack {
+        ListItemsView(list: .defaultExample, searchText: "")
+            .environment(AppState.example())
+            .modelContainer(moc)
+    }
 }

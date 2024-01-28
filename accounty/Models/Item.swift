@@ -45,4 +45,26 @@ final class Item {
     }
 }
 
-#warning("Add an extension with some examples to be used in previews and tests")
+extension Item {
+    static func example(name: String = "Example Item" ,list: ShoppingList = .defaultExample, category: Category? = nil) -> Item {
+        return Item(
+            name: name,
+            cost: .random(in: 0...100),
+            isStocked: .random(),
+            once: .random(),
+            isActive: .random(),
+            category: category,
+            list: list,
+            tags: ["hot", "cold", "big", "small"]
+        )
+    }
+    
+    static func examples(list: ShoppingList = .defaultExample, category: Category? = nil) ->  [Item] {
+        return [
+            example(name: "Item 1", list: list, category: category),
+            example(name: "Item 2", list: list, category: category),
+            example(name: "Item 3", list: list, category: category),
+            example(name: "Item 4", list: list, category: category),
+        ]
+    }
+}

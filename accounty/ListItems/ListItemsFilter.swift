@@ -55,8 +55,3 @@ struct ListitemsFilter<Content: View>: View {
         self.content(uncategorizedItems, listingCategories)
     }
 }
-
-#warning("Fix ListItemsFilter preview")
-//#Preview {
-//    ListItemsFilter()
-//}

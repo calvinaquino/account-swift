@@ -22,4 +22,18 @@ final class Category {
         self.list = list
     }
 }
-#warning("Add an extension with some examples to be used in previews and tests")
+
+extension Category {
+    static func example(list: ShoppingList = .defaultExample) -> Category {
+        return Category(name: "Category Example", list: list)
+    }
+    
+    static func examples(list: ShoppingList = .defaultExample) ->  [Category] {
+        return [
+            Category(name: "Category Example 1", list: list),
+            Category(name: "Category Example 2", list: list),
+            Category(name: "Category Example 3", list: list),
+            Category(name: "Category Example 4", list: list),
+        ]
+    }
+}

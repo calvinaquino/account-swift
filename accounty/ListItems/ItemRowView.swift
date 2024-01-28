@@ -35,15 +35,11 @@ struct ItemRowView: View {
     }
 }
 
-#warning("Copy this model config setup to other previews, or setup a generic one in a shared file")
 #Preview {
-//    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//    let container = try! ModelContainer(for: Item.self, configurations: config)
-    let list = ShoppingList(name: "List")
-    let item1 = Item(name: "Item 1 name", cost: 2.50, isStocked: true, isActive: true, list: list)
-    let item2 = Item(name: "Item 2 name", cost: 12.50, isStocked: false, isActive: true, list: list)
+    let items = Item.examples()
     return List {
-        ItemRowView(item: item1) {}
-        ItemRowView(item: item2) {}
+        ForEach(items) {
+            ItemRowView(item: $0) {}
+        }
     }
 }

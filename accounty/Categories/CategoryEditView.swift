@@ -45,7 +45,17 @@ struct CategoryEditView: View {
     }
 }
 
-#warning("Fix CategoryEditView preview")
-//#Preview {
-//    CategoryEditView()
-//}
+#Preview {
+    let moc = DataProvider.previewContainer()
+    let category = Category.example()
+    category.items = Item.examples()
+    moc.mainContext.insert(ShoppingList.defaultExample)
+    moc.mainContext.insert(category)
+    for item in category.items {
+        moc.mainContext.insert(item)
+    }
+    return NavigationView {
+        CategoryEditView(category: category, list: .defaultExample)
+            .modelContainer(moc)
+    }
+}

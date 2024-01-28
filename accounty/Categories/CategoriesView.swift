@@ -82,7 +82,16 @@ struct CategoriesListingView: View {
     }
 }
 
-#warning("Fix CategoriesView preview")
-//#Preview {
-//    CategoriesView()
-//}
+#Preview {
+    let moc = DataProvider.previewContainer()
+    let categories = Category.examples()
+    moc.mainContext.insert(ShoppingList.defaultExample)
+    for category in categories {
+        moc.mainContext.insert(category)
+    }
+
+    return NavigationStack {
+        CategoriesView(list: .defaultExample)
+            .modelContainer(moc)
+    }
+}
