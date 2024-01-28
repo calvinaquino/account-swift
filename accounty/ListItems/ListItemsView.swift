@@ -16,7 +16,6 @@ struct ListItemsView: View {
     @State var editingItem: Item?
     @State var filters: Set<Filter> = Set<Filter>()
     
-    #warning("one time items should become inactive when stocked.")
     var body: some View {
         ListitemsFilter(list: list, searchText: $searchText, filters: $filters) { items, categories in
             List {
@@ -153,7 +152,7 @@ struct ListItemsView: View {
             searchText = ""
             let newItem = Item(name: newName, list: list)
             modelContext.insert(newItem)
-            editingItem = newItem // should open sheet
+            editingItem = newItem
         }
     }
     

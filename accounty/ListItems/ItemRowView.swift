@@ -30,6 +30,9 @@ struct ItemRowView: View {
                 Image(systemName: item.isStocked ? "shippingbox.fill" : "shippingbox")
                     .onTapGesture {
                         item.isStocked.toggle()
+                        if item.isStocked && item.once {
+                            item.isActive = false
+                        }
                     }
             }
         }

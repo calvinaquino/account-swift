@@ -70,6 +70,7 @@ struct CategoriesListingView: View {
         withAnimation {
             let newCategory = Category(name: "New Category", list: self.list)
             modelContext.insert(newCategory)
+            self.editingCategory = newCategory
         }
     }
     
