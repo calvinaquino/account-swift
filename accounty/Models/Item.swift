@@ -10,10 +10,8 @@ import SwiftData
 
 @Model
 final class Item {
-#warning("Do we really need a UUID?")
-//    @Attribute(.unique) var identifier: UUID
     var name: String
-#warning("Add a description field, but since we cant reuse the word description, maybe itemDescription?")
+    var comment: String
     var cost: Float
     var isStocked: Bool
     var once: Bool // when purchased, deactivates item
@@ -26,6 +24,7 @@ final class Item {
     
     init(
         name: String = "",
+        comment: String = "",
         cost: Float = 0.00,
         isStocked: Bool = false,
         once: Bool = false,
@@ -35,6 +34,7 @@ final class Item {
         tags: [String] = []
     ) {
         self.name = name
+        self.comment = comment
         self.cost = cost
         self.isStocked = isStocked
         self.once = once
@@ -49,6 +49,7 @@ extension Item {
     static func example(name: String = "Example Item" ,list: ShoppingList = .defaultExample, category: Category? = nil) -> Item {
         return Item(
             name: name,
+            comment: "a comment",
             cost: .random(in: 0...100),
             isStocked: .random(),
             once: .random(),

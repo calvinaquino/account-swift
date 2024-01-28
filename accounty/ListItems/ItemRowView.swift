@@ -19,10 +19,12 @@ struct ItemRowView: View {
                 VStack(alignment: .leading) {
                     Text(item.name)
                         .font(.headline)
-                    Text("Item description")
-                        .font(.subheadline)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
+                    if !item.comment.isEmpty {
+                        Text(item.comment)
+                            .font(.subheadline)
+                            .lineLimit(1)
+                            .truncationMode(.tail)
+                    }
                 }
                 Spacer()
                 Image(systemName: item.isStocked ? "shippingbox.fill" : "shippingbox")

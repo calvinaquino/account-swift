@@ -13,14 +13,6 @@ struct ItemEditView: View {
     let list: ShoppingList
     @Query private var categories: [Category]
     
-    private var currencyFormatter: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.minimumFractionDigits = 2
-        formatter.minimum = 0.00
-        return formatter
-    }
-    
     init(item: Item, list: ShoppingList) {
         self.item = item
         self.list = list
@@ -31,10 +23,11 @@ struct ItemEditView: View {
     var body: some View {
         Form {
             TextField("Name", text: $item.name)
-            #warning("Fix textField with currency formatter. Maybe just make it a String? or use number formatter instead of currency")
-            // Something is shitty here
-//            TextField("Cost", value: $item.cost, formatter: currencyFormatter)
-//                .keyboardType(.decimalPad)
+            TextField("Comment", text: $item.comment, axis: .vertical)
+            // I am not happy with this behaviour but it works.
+            TextField("Cost", value: $item.cost, format: .number)
+                .keyboardType(.decimalPad)
+            .keyboardType(.decimalPad)
             Toggle("Stocked", isOn: $item.isStocked)
             Toggle("Active", isOn: $item.isActive)
             Toggle("One time purchase", isOn: $item.once)
