@@ -14,12 +14,11 @@ struct ListItemsView: View {
     @Bindable var list: ShoppingList
     @State var searchText = ""
     @State var editingItem: Item?
+    @State var filters: Set<Filter> = Set<Filter>()
     
-    #warning("add filter button to show unstocked stuff")
-    #warning("add active/inactive state fade")
     #warning("one time items should become inactive when stocked.")
     var body: some View {
-        ListitemsFilter(list: list, searchText: $searchText) { items, categories in
+        ListitemsFilter(list: list, searchText: $searchText, filters: $filters) { items, categories in
             List {
                 ForEach(items) { itemListRow(item: $0) }
                     .onDelete { deleteUncategorizedItems(offsets: $0, from: items) }
@@ -49,11 +48,51 @@ struct ListItemsView: View {
             }
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                    Button(action: goToCategories) {
-                        Label("Categories", systemImage: "folder")
+                    HStack(spacing: 0) {
+                        Button(action: addItem) {
+                            Label("Add Item", systemImage: "plus")
+                        }
+                        Button(action: goToCategories) {
+                            Label("Categories", systemImage: "folder")
+                        }
+                        Menu {
+                            Button {
+                                toggleFilter(.unstocked)
+                            } label: {
+                                HStack {
+                                    Text("Missing")
+                                    if filters.contains(.unstocked) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                            Button {
+                                toggleFilter(.once)
+                            } label: {
+                                HStack {
+                                    Text("One time")
+                                    if filters.contains(.once) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                            Button {
+                                toggleFilter(.active)
+                            } label: {
+                                HStack {
+                                    Text("Active")
+                                    if filters.contains(.active) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }
+                            }
+                        } label: {
+                            if filters.isEmpty {
+                                Image(systemName: "line.3.horizontal.decrease.circle")
+                            } else {
+                                Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                            }
+                        }
                     }
                 }
                 ToolbarItem(placement: .principal) {
@@ -86,6 +125,14 @@ struct ListItemsView: View {
         }
     }
     
+    private func toggleFilter(_ filter: Filter) {
+        if filters.contains(filter) {
+            filters.remove(filter)
+        } else {
+            filters.insert(filter)
+        }
+    }
+    
     private func addItem() {
         withAnimation {
             let newName = searchText.isEmpty ? "New item" : searchText
@@ -114,6 +161,7 @@ struct ListItemsView: View {
         ItemRowView(item: item) {
             self.editingItem = item
         }
+        .opacity(!item.isActive ? 0.4 : 1.0)
     }
     
     private func deleteUncategorizedItems(offsets: IndexSet, from items: [Item]) {
