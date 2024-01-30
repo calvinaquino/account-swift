@@ -11,8 +11,8 @@ import SwiftData
 @Model
 final class Item {
     var name: String
-    var comment: String
-    var cost: Float
+    var note: String
+    var cost: String
     var isStocked: Bool
     var once: Bool // when purchased, deactivates item
     var isActive: Bool
@@ -24,8 +24,8 @@ final class Item {
     
     init(
         name: String = "",
-        comment: String = "",
-        cost: Float = 0.00,
+        note: String = "",
+        cost: String = "0.00",
         isStocked: Bool = false,
         once: Bool = false,
         isActive: Bool = true,
@@ -34,7 +34,7 @@ final class Item {
         tags: [String] = []
     ) {
         self.name = name
-        self.comment = comment
+        self.note = note
         self.cost = cost
         self.isStocked = isStocked
         self.once = once
@@ -49,8 +49,8 @@ extension Item {
     static func example(name: String = "Example Item" ,list: ShoppingList = .defaultExample, category: Category? = nil) -> Item {
         return Item(
             name: name,
-            comment: "a comment",
-            cost: .random(in: 0...100),
+            note: "a comment",
+            cost: Float.random(in: 0...30).asString,
             isStocked: .random(),
             once: .random(),
             isActive: .random(),

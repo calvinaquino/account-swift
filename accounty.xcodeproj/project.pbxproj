@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		981000902B68B0DF002F9FBA /* Number+asString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9810008F2B68B0DF002F9FBA /* Number+asString.swift */; };
 		9833C54E2B3112CA00E3B3F1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9833C54D2B3112CA00E3B3F1 /* Category.swift */; };
 		9833C5502B3112FC00E3B3F1 /* ShoppingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9833C54F2B3112FC00E3B3F1 /* ShoppingList.swift */; };
 		9833C5522B314E0800E3B3F1 /* ListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9833C5512B314E0800E3B3F1 /* ListItemsView.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9810008F2B68B0DF002F9FBA /* Number+asString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+asString.swift"; sourceTree = "<group>"; };
 		9833C54D2B3112CA00E3B3F1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		9833C54F2B3112FC00E3B3F1 /* ShoppingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingList.swift; sourceTree = "<group>"; };
 		9833C5512B314E0800E3B3F1 /* ListItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		985C20F02B663CEE00E673FE /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9810008F2B68B0DF002F9FBA /* Number+asString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				9833C6592B4CB6AA00E3B3F1 /* CategoriesView.swift in Sources */,
 				9833C5502B3112FC00E3B3F1 /* ShoppingList.swift in Sources */,
 				9833C54E2B3112CA00E3B3F1 /* Category.swift in Sources */,
+				981000902B68B0DF002F9FBA /* Number+asString.swift in Sources */,
 				9833C65D2B4CD4C600E3B3F1 /* CategoryEditView.swift in Sources */,
 				9833C6572B4C8EE400E3B3F1 /* ItemEditView.swift in Sources */,
 				985C20F32B663D0F00E673FE /* PreviewHelper.swift in Sources */,

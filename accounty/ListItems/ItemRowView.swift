@@ -19,8 +19,8 @@ struct ItemRowView: View {
                 VStack(alignment: .leading) {
                     Text(item.name)
                         .font(.headline)
-                    if !item.comment.isEmpty {
-                        Text(item.comment)
+                    if !item.note.isEmpty {
+                        Text(item.note)
                             .font(.subheadline)
                             .lineLimit(1)
                             .truncationMode(.tail)
@@ -41,10 +41,11 @@ struct ItemRowView: View {
 }
 
 #Preview {
-    let items = Item.examples()
-    return List {
-        ForEach(items) {
-            ItemRowView(item: $0) {}
-        }
-    }
+//    let items = Item.examples()
+//    return List {
+//        ForEach(items) {
+//            ItemRowView(item: $0) {}
+//        }
+//    }
+    ItemRowView(item: .example()) {}
 }
