@@ -16,7 +16,6 @@ struct ListItemsView: View {
     @State var editingItem: Item?
     @State var filters: Set<Filter> = Set<Filter>()
     
-    #warning("Search find items from all lists, must fix")
     var body: some View {
         ListitemsFilter(list: list, searchText: $searchText, filters: $filters) { items, categories in
             List {

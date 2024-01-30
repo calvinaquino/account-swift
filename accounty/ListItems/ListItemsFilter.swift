@@ -53,8 +53,8 @@ struct ListitemsFilter<Content: View>: View {
         let id = list.persistentModelID
         let search = searchText.wrappedValue
         self._items = Query(filter: #Predicate<Item> {
-            $0.list.persistentModelID == id &&
-            search.isEmpty ? true : $0.name.localizedStandardContains(search)
+            ($0.list.persistentModelID == id) &&
+            (search.isEmpty ? true : $0.name.localizedStandardContains(search))
         })
         
         self._categories = Query(filter: #Predicate<Category> {
